@@ -1,1 +1,3 @@
-/* Place any Javascript here you want loaded in test.xhtml */
+$(document).on('click', '.tweak', function () {
+   $('input[value="two"]').val('three-disabled');
+});

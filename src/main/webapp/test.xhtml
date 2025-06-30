@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="jakarta.faces.facelets"
       xmlns:f="jakarta.faces.core"
       xmlns:h="jakarta.faces.html"
       xmlns:p="primefaces">
 
-    <h:head>
-        <title>PrimeFaces Test</title>
-        <h:outputScript name="test.js" />
-        <h:outputStylesheet name="test.css" />
-    </h:head>
-    <h:body>
+<h:head>
+    <title>PrimeFaces RadioButton Example</title>
+    <h:outputScript name="test.js"/>
+    <h:outputStylesheet name="test.css"/>
+</h:head>
+<h:body>
 
-        <h1>#{testView.string}</h1>
-        <h:form id="frmTest">
+    <h:form>
+        <p:selectOneRadio value="#{testView.string}">
+            <f:selectItem itemValue="one" itemLabel="One"/>
+            <f:selectItem itemValue="two" itemLabel="Two"/>
+            <f:selectItem itemValue="three-disabled" itemLabel="Three (disabled)" itemDisabled="true"/>
+            <f:selectItem itemValue="four-disabled" itemLabel="Four (disabled)" itemDisabled="true"/>
 
-        </h:form>
+            <p:ajax update="@form"/>
+        </p:selectOneRadio>
 
-    </h:body>
+        <p>Selected: #{testView.string}</p>
+
+        <p>If you change the value of one of the enabled options to a disabled one, then click on the enabled one, you can select the disabled one.</p>
+        <button type="button" class="tweak">Tweak value</button>
+    </h:form>
+
+</h:body>
 </html>
